@@ -1,13 +1,21 @@
 using WeBazaar.Data.Enums;
-using WeBazaar.Data; 
+using WeBazaar.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+/*void Program(IConfiguration configuration)
+{
+    Configuration = configuration;
+}
+public IConfiguration Configuration { get; }
+*/
+
 //DbContext configuration
-builder.Services.AddDbContext<AppDbContext>();
+builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString")));
 
 var app = builder.Build();
 
