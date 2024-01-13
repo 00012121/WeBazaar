@@ -9,5 +9,8 @@ namespace WeBazaar.Models
         public string Logo { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+
+        //Relationship
+        public List<Item> Items { get; set; }
     }
 }
