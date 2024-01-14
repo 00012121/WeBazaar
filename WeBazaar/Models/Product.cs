@@ -7,7 +7,7 @@ namespace WeBazaar.Models
         [Key]
         public int Id { get; set; }
 
-        [Display(Name = "Profile picture URL")]
+        [Display(Name = "Profile picture")]
         public string ProfilePictureURL { get; set; }
 
         [Display(Name="Full name")]
