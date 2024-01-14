@@ -30,7 +30,7 @@ namespace WeBazaar.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<Item> Items { get; set; }
         public DbSet<Product_Item> Products_Items { get; set; }
-        public DbSet<Company> Comapnies { get; set; }
+        public DbSet<Company> Companies { get; set; }
         public DbSet<Producer> Producers { get; set; }
 
     }

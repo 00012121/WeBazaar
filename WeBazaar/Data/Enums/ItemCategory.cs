@@ -2,7 +2,7 @@
 {
     public enum ItemCategory
     {
-        Grocerym = 1,
+        Grocery = 1,
         Household,
         Diary,
         PersonalCare,
