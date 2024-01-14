@@ -15,7 +15,7 @@ namespace WeBazaar.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var allItems = await _context.Items.ToListAsync();
+            var allItems = await _context.Items.Include(n => n.Company).OrderBy(n => n.Name).ToListAsync();
             return View(allItems);
         }
     }
