@@ -8,6 +8,7 @@ namespace WeBazaar.Models
     {
         [Key]
         public int Id { get; set; }
+
         public string Name { get; set; }
         public string Description { get; set; }
         public double Price { get; set; }
@@ -16,13 +17,15 @@ namespace WeBazaar.Models
         public DateTime EndDate { get; set; }
         public ItemCategory ItemCategory { get; set; }
 
-        //Relationship
+        //Relationship with product
         public List<Product_Item> Products_Items { get; set; }
+
 
         //Company
         public int CompanyId { get; set; }
         [ForeignKey("CompanyId")]
         public Company Company { get; set; }
+
 
         //Producer
         public int ProducerId { get; set; }
