@@ -20,33 +20,33 @@ namespace WeBazaar.Data
                     {
                         new Company()
                         {
-                            Name = "Cinema 1",
-                            Logo = "http://dotnethow.net/images/cinemas/cinema-1.jpeg",
-                            Description = "This is the description of the first cinema"
+                            Name = "Company 1",
+                            Logo = "https://yandex.com/images/search?pos=0&img_url=https%3A%2F%2Ftrashbox.ru%2Ffiles%2F623813_662c79%2Fnokia-logo-blue-rev.jpg&text=nokia+logo&rpt=simage&lr=10335",
+                            Description = "This is the description of the first company"
                         },
                         new Company()
                         {
-                            Name = "Cinema 2",
-                            Logo = "http://dotnethow.net/images/cinemas/cinema-2.jpeg",
-                            Description = "This is the description of the first cinema"
+                            Name = "Company 2",
+                            Logo = "https://yandex.com/images/search?pos=4&img_url=https%3A%2F%2Fxn--e1anecbk3a.xn--p1ai%2Fwp-content%2Fuploads%2F2018%2F12%2F%25D0%259B%25D0%25BE%25D0%25B3%25D0%25BE%25D1%2582%25D0%25B8%25D0%25BF-Apple.png&text=apple+phone+logo&rpt=simage&lr=10335",
+                            Description = "This is the description of the first company"
                         },
                         new Company()
                         {
-                            Name = "Cinema 3",
-                            Logo = "http://dotnethow.net/images/cinemas/cinema-3.jpeg",
-                            Description = "This is the description of the first cinema"
+                            Name = "Company 3",
+                            Logo = "https://yandex.com/images/search?pos=12&img_url=https%3A%2F%2Fwww.vhv.rs%2Fdpng%2Fd%2F465-4650876_notification-bell-icon-youtube-png-clip-freeuse-download.png&text=samsung+logo&rpt=simage&lr=10335",
+                            Description = "This is the description of the first company"
                         },
                         new Company()
                         {
-                            Name = "Cinema 4",
-                            Logo = "http://dotnethow.net/images/cinemas/cinema-4.jpeg",
-                            Description = "This is the description of the first cinema"
+                            Name = "Company 4",
+                            Logo = "https://yandex.com/images/search?pos=4&img_url=https%3A%2F%2Fvectorified.com%2Fimage%2Fjf-logo-vector-2.jpg&text=Adidas+logo&rpt=simage&lr=10335",
+                            Description = "This is the description of the first company"
                         },
                         new Company()
                         {
-                            Name = "Cinema 5",
-                            Logo = "http://dotnethow.net/images/cinemas/cinema-5.jpeg",
-                            Description = "This is the description of the first cinema"
+                            Name = "Company 5",
+                            Logo = "https://yandex.com/images/search?pos=0&img_url=https%3A%2F%2Fsun9-26.userapi.com%2Fimpf%2FQhKHbhernZWo6LA1hvHE6HjZGuvxuQ0WBc1aUw%2FPqZRjuXoz5g.jpg%3Fsize%3D604x442%26quality%3D96%26sign%3D822d4bff63c50872d210bc7773c58dfc%26c_uniq_tag%3D1ZsLGlDGDxkdUEuaUxpeRr7eyVIL6FHRTpBcECg-ozc%26type%3Dalbum&text=nike&rpt=simage&lr=10335",
+                            Description = "This is the description of the first company"
                         },
                     });
                     context.SaveChanges();
