@@ -11,6 +11,7 @@ namespace WeBazaar.Controllers
         public ProductsController(AppDbContext context)
         {
             _context = context;
+            //var = _context:
         }
 
         public IActionResult Index()

@@ -132,6 +132,7 @@ namespace WeBazaar.Data
                     context.SaveChanges();
                 }
 
+
                 //Items
                 if (!context.Items.Any())
                 {
