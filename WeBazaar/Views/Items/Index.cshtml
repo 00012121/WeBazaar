@@ -27,15 +27,15 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <img src="@item.ImageURL" width="100" alt="@item.Name">
+                        <img src="@item.ImageURL" width="100%" alt="@item.Name">
                     </div>
                     <div class="col-md-6">
                         <div class="card-body">
-                            <p class="card-text">Description</p>
+                            <p class="card-text"><b>Description: </b>@item.Description</p>
                             <p class="card-text"><b>Company: </b>@item.Company.Name</p>
                             <p class="card-text"><b>Category: </b>@item.ItemCategory</p>
                             <p class="card-text"><b>Start Date: </b>@item.StartDate.ToString("dd MMM yy")</p>
-                            <p class="card-text"><b>End Date: </b>@item.EndDate.ToString("dd MMM yy")</p>
+                            @*<p class="card-text"><b>End Date: </b>@item.EndDate.ToString("dd MMM yy")</p>*@
                             <p class="card-text ">
                                 <b>Status: </b>
                                 @if (DateTime.Now >= item.StartDate && DateTime.Now <= item.EndDate)
@@ -44,11 +44,11 @@
                                 }
                                 else if (DateTime.Now > item.EndDate)
                                 {
-                                    <span class="badge bg-danger text-white">EXPIRED</span>
+                                    <span class="badge bg-danger text-white">SOLD OUT</span>
                                 }
                                 else
                                 {
-                                    <span class="badge bg-primary text-white">UPCOMING</span>
+                                    <span class="badge bg-danger text-white">SOLD OUT</span>
                                 }
                             </p>
 

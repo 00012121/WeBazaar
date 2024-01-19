@@ -21,31 +21,31 @@ namespace WeBazaar.Data
                         new Company()
                         {
                             Name = "Company 1",
-                            Logo = "https://yandex.com/images/search?pos=0&img_url=https%3A%2F%2Ftrashbox.ru%2Ffiles%2F623813_662c79%2Fnokia-logo-blue-rev.jpg&text=nokia+logo&rpt=simage&lr=10335",
+                            Logo = "https://avatars.mds.yandex.net/i?id=19c3aa6de8bdab84643f218c5e421042a8754a0e-10350562-images-thumbs&n=13",
                             Description = "This is the description of the first company"
                         },
                         new Company()
                         {
                             Name = "Company 2",
-                            Logo = "https://yandex.com/images/search?pos=4&img_url=https%3A%2F%2Fxn--e1anecbk3a.xn--p1ai%2Fwp-content%2Fuploads%2F2018%2F12%2F%25D0%259B%25D0%25BE%25D0%25B3%25D0%25BE%25D1%2582%25D0%25B8%25D0%25BF-Apple.png&text=apple+phone+logo&rpt=simage&lr=10335",
+                            Logo = "https://avatars.mds.yandex.net/i?id=de28469de23bbdbe39dc95744bc6ea57073d1f84-10702829-images-thumbs&n=13",
                             Description = "This is the description of the first company"
                         },
                         new Company()
                         {
                             Name = "Company 3",
-                            Logo = "https://yandex.com/images/search?pos=12&img_url=https%3A%2F%2Fwww.vhv.rs%2Fdpng%2Fd%2F465-4650876_notification-bell-icon-youtube-png-clip-freeuse-download.png&text=samsung+logo&rpt=simage&lr=10335",
+                            Logo = "https://avatars.mds.yandex.net/i?id=c2a56810488a0ce4f9bd687dbed1c56ddb4a7203-10901265-images-thumbs&n=13",
                             Description = "This is the description of the first company"
                         },
                         new Company()
                         {
                             Name = "Company 4",
-                            Logo = "https://yandex.com/images/search?pos=4&img_url=https%3A%2F%2Fvectorified.com%2Fimage%2Fjf-logo-vector-2.jpg&text=Adidas+logo&rpt=simage&lr=10335",
+                            Logo = "https://avatars.mds.yandex.net/i?id=9ad8e4d7fdcf4110dd0428a00f62d632722f5fcc-9683825-images-thumbs&n=13",
                             Description = "This is the description of the first company"
                         },
                         new Company()
                         {
                             Name = "Company 5",
-                            Logo = "https://yandex.com/images/search?pos=0&img_url=https%3A%2F%2Fsun9-26.userapi.com%2Fimpf%2FQhKHbhernZWo6LA1hvHE6HjZGuvxuQ0WBc1aUw%2FPqZRjuXoz5g.jpg%3Fsize%3D604x442%26quality%3D96%26sign%3D822d4bff63c50872d210bc7773c58dfc%26c_uniq_tag%3D1ZsLGlDGDxkdUEuaUxpeRr7eyVIL6FHRTpBcECg-ozc%26type%3Dalbum&text=nike&rpt=simage&lr=10335",
+                            Logo = "https://avatars.mds.yandex.net/i?id=63d5e6b9c5d6a8b80f1db0d803f94c05eb4f17c9-6994724-images-thumbs&n=13",
                             Description = "This is the description of the first company"
                         },
                     });
@@ -60,34 +60,34 @@ namespace WeBazaar.Data
                     {
                         new Product()
                         {
-                            FullName = "Actor 1",
-                            Bio = "This is the Bio of the first actor",
-                            ProfilePictureURL = "http://dotnethow.net/images/actors/actor-1.jpeg"
+                            FullName = "Product 1",
+                            Bio = "This is the description of the first product",
+                            ProfilePictureURL = "https://avatars.mds.yandex.net/i?id=44931657198a2ae842c89bb761723a4f6c0247be-5283588-images-thumbs&n=13"
 
                         },
                         new Product()
                         {
-                            FullName = "Actor 2",
-                            Bio = "This is the Bio of the second actor",
-                            ProfilePictureURL = "http://dotnethow.net/images/actors/actor-2.jpeg"
+                            FullName = "Product 2",
+                            Bio = "This is the description of the second product",
+                            ProfilePictureURL = "https://avatars.mds.yandex.net/i?id=978b40132fca73190a2bd97cbfe32a0f5aaa6b30-9986976-images-thumbs&n=13"
                         },
                         new Product()
                         {
-                            FullName = "Actor 3",
-                            Bio = "This is the Bio of the second actor",
-                            ProfilePictureURL = "http://dotnethow.net/images/actors/actor-3.jpeg"
+                            FullName = "Product 3",
+                            Bio = "This is the description of the second product",
+                            ProfilePictureURL = "https://avatars.mds.yandex.net/i?id=97430061f7f9fb1b65a38499daf0a83f63330e80-9099160-images-thumbs&n=13"
                         },
                         new Product()
                         {
-                            FullName = "Actor 4",
-                            Bio = "This is the Bio of the second actor",
-                            ProfilePictureURL = "http://dotnethow.net/images/actors/actor-4.jpeg"
+                            FullName = "Product 4",
+                            Bio = "This is the description of the second product",
+                            ProfilePictureURL = "https://avatars.mds.yandex.net/i?id=57f0e79a09fc2a9dc4496646ca934ba2b51bb294-8750921-images-thumbs&n=13"
                         },
                         new Product()
                         {
-                            FullName = "Actor 5",
-                            Bio = "This is the Bio of the second actor",
-                            ProfilePictureURL = "http://dotnethow.net/images/actors/actor-5.jpeg"
+                            FullName = "Product 5",
+                            Bio = "This is the description of the second product",
+                            ProfilePictureURL = "https://avatars.mds.yandex.net/i?id=a98d887241cebd321ea3b333a208debde0195220-9854329-images-thumbs&n=13"
                         }
                     });
                     context.SaveChanges();
@@ -101,33 +101,32 @@ namespace WeBazaar.Data
                         new Producer()
                         {
                             FullName = "Producer 1",
-                            Bio = "This is the Bio of the first actor",
-                            ProfilePicture = "http://dotnethow.net/images/producers/producer-1.jpeg"
-
+                            Bio = "This is the Bio of the first producer",
+                            ProfilePicture = "https://avatars.mds.yandex.net/i?id=0ed29228343570bf6e648001fe6e3275b0c1d01c-5251286-images-thumbs&n=13"
                         },
                         new Producer()
                         {
                             FullName = "Producer 2",
-                            Bio = "This is the Bio of the second actor",
-                            ProfilePicture = "http://dotnethow.net/images/producers/producer-2.jpeg"
+                            Bio = "This is the Bio of the second producer",
+                            ProfilePicture = "https://avatars.mds.yandex.net/i?id=6d3a5e80b2656fd1990b21fb1a6eda4695b14551-4556252-images-thumbs&n=13"
                         },
                         new Producer()
                         {
                             FullName = "Producer 3",
-                            Bio = "This is the Bio of the second actor",
-                            ProfilePicture = "http://dotnethow.net/images/producers/producer-3.jpeg"
+                            Bio = "This is the Bio of the second producer",
+                            ProfilePicture = "https://avatars.mds.yandex.net/i?id=1b0152e9a1a00954f3f159aafdef986c-4592506-images-thumbs&n=13"
                         },
                         new Producer()
                         {
                             FullName = "Producer 4",
-                            Bio = "This is the Bio of the second actor",
-                            ProfilePicture = "http://dotnethow.net/images/producers/producer-4.jpeg"
+                            Bio = "This is the Bio of the second producer",
+                            ProfilePicture = "https://avatars.mds.yandex.net/i?id=f600bef15a6b14e111f06ccb99f6b57417c2ee85-10638002-images-thumbs&n=13"
                         },
                         new Producer()
                         {
                             FullName = "Producer 5",
-                            Bio = "This is the Bio of the second actor",
-                            ProfilePicture = "http://dotnethow.net/images/producers/producer-5.jpeg"
+                            Bio = "This is the Bio of the second producer",
+                            ProfilePicture = "https://avatars.mds.yandex.net/i?id=9369a3518777f54756da32dc4661975ff0fa9d63-10806524-images-thumbs&n=13"
                         }
                     });
                     context.SaveChanges();
@@ -140,74 +139,74 @@ namespace WeBazaar.Data
                     {
                         new Item()
                         {
-                            Name = "Life",
-                            Description = "This is the Life movie description",
+                            Name = "iPhone 13 pro",
+                            Description = "This is the phone description",
                             Price = 39.50,
-                            ImageURL = "http://dotnethow.net/images/movies/movie-3.jpeg",
+                            ImageURL = "https://avatars.mds.yandex.net/i?id=b3179fb65f58ae84b963126ff6b07348a962b73b-10114558-images-thumbs&n=13",
                             StartDate = DateTime.Now.AddDays(-10),
                             EndDate = DateTime.Now.AddDays(10),
-                            CompanyId = 3,
-                            ProducerId = 3,
+                            CompanyId = 8,
+                            ProducerId = 8,
                             ItemCategory = ItemCategory.Grocery
                         },
                         new Item()
                         {
-                            Name = "The Shawshank Redemption",
-                            Description = "This is the Shawshank Redemption description",
+                            Name = "iPhone 11",
+                            Description = "This is the phone description",
                             Price = 29.50,
-                            ImageURL = "http://dotnethow.net/images/movies/movie-1.jpeg",
+                            ImageURL = "https://avatars.mds.yandex.net/i?id=cfa59205825b4acbe14fccd8669a5b41a8b2fe7e-9832347-images-thumbs&n=13",
                             StartDate = DateTime.Now,
                             EndDate = DateTime.Now.AddDays(3),
-                            CompanyId = 1,
-                            ProducerId = 1,
+                            CompanyId = 6,
+                            ProducerId = 6,
                             ItemCategory = ItemCategory.Household
                         },
                         new Item()
                         {
-                            Name = "Ghost",
-                            Description = "This is the Ghost movie description",
+                            Name = "Lip stick",
+                            Description = "This is the product description",
                             Price = 39.50,
-                            ImageURL = "http://dotnethow.net/images/movies/movie-4.jpeg",
+                            ImageURL = "https://avatars.mds.yandex.net/i?id=f096fd6b970a9b7d7f1444a20b53d974-5886407-images-thumbs&n=13",
                             StartDate = DateTime.Now,
                             EndDate = DateTime.Now.AddDays(7),
-                            CompanyId = 4,
-                            ProducerId = 4,
+                            CompanyId = 9,
+                            ProducerId = 9,
                             ItemCategory = ItemCategory.Diary
                         },
                         new Item()
                         {
-                            Name = "Race",
-                            Description = "This is the Race movie description",
+                            Name = "Cream",
+                            Description = "This is the cream description",
                             Price = 39.50,
-                            ImageURL = "http://dotnethow.net/images/movies/movie-6.jpeg",
+                            ImageURL = "https://avatars.mds.yandex.net/i?id=fea9e0fb3dcc139146140c6711ced01d231e61c8-5669034-images-thumbs&n=13",
                             StartDate = DateTime.Now.AddDays(-10),
                             EndDate = DateTime.Now.AddDays(-5),
-                            CompanyId = 1,
-                            ProducerId = 2,
+                            CompanyId = 6,
+                            ProducerId = 7,
                             ItemCategory = ItemCategory.CannedGoods
                         },
                         new Item()
                         {
-                            Name = "Scoob",
-                            Description = "This is the Scoob movie description",
+                            Name = "Snicker",
+                            Description = "This is the shoe description",
                             Price = 39.50,
-                            ImageURL = "http://dotnethow.net/images/movies/movie-7.jpeg",
+                            ImageURL = "https://avatars.mds.yandex.net/i?id=b1dec33206bb582cbb32e6d4e9661495af0b5df3-5233733-images-thumbs&n=13",
                             StartDate = DateTime.Now.AddDays(-10),
                             EndDate = DateTime.Now.AddDays(-2),
-                            CompanyId = 1,
-                            ProducerId = 3,
+                            CompanyId = 6,
+                            ProducerId = 8,
                             ItemCategory = ItemCategory.PersonalCare
                         },
                         new Item()
                         {
-                            Name = "Cold Soles",
-                            Description = "This is the Cold Soles movie description",
+                            Name = "Roller",
+                            Description = "This is the roller description",
                             Price = 39.50,
-                            ImageURL = "http://dotnethow.net/images/movies/movie-8.jpeg",
+                            ImageURL = "https://avatars.mds.yandex.net/i?id=37f93a9b42e424d0cec760d9af011fc75c1be8d2-9231415-images-thumbs&n=13",
                             StartDate = DateTime.Now.AddDays(3),
                             EndDate = DateTime.Now.AddDays(20),
-                            CompanyId = 1,
-                            ProducerId = 5,
+                            CompanyId = 6,
+                            ProducerId = 10,
                             ItemCategory = ItemCategory.Diary
                         }
                     });
