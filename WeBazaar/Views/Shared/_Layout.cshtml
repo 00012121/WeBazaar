@@ -40,8 +40,10 @@
                     </ul>
 
                     <form class="form-inline my-2 my-lg-0" asp-controller="Items" asp-action="Filter" style="padding-right: 25px;">
-                        <input name="searchString" type="text" class="form-control  flex-grow-1" placeholder="Search for an item...">
-                        <button class="btn btn-outline-success my-2 my-sm-0 flex-grow-0" type="submit"><i class="bi bi-search"></i></button>
+                        <div class="d-flex align-items-center">
+                            <input name="searchString" type="text" class="form-control flex-grow-1 mr-2" style="margin-right:10px;" placeholder="Search for an item...">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
+                        </div>
                     </form>
                 </div>
             </div>
