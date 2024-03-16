@@ -1,9 +1,16 @@
-﻿using WeBazaar.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Identity.Client;
+using WeBazaar.Models;
 
 namespace WeBazaar.Data.Services
 {
     public class ProductsService : IProductsService
     {
+        private readonly AppDbContext _context;
+        public ProductsService(AppDbContext context)
+        {
+            _context = context;
+        }
         public void Add(Product product)
         {
             throw new NotImplementedException();
@@ -14,9 +21,10 @@ namespace WeBazaar.Data.Services
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Product> GetAll()
+        public async Task<IEnumerable<Product>> GetAll()
         {
-            throw new NotImplementedException();
+            var result = await _context.Products.ToListAsync();
+            return result;
         }
 
         public Product GetById(int id)

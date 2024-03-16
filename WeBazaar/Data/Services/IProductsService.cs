@@ -4,7 +4,7 @@ namespace WeBazaar.Data.Services
 {
     public interface IProductsService
     {
-        IEnumerable<Product> GetAll();
+        Task<IEnumerable<Product>> GetAll();
         Product GetById(int id);
         void Add(Product product);
         Product Update(int id, Product newProduct);

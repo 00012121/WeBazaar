@@ -1,22 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Net.WebSockets;
 using WeBazaar.Data;
+using WeBazaar.Data.Services;
 
 namespace WeBazaar.Controllers
 {
     public class ProductsController : Controller
     {
-        private readonly AppDbContext _context;
+        private readonly IProductsService _service;
 
-        public ProductsController(AppDbContext context)
+        public ProductsController(IProductsService service)
         {
-            _context = context;
+            _service = service;
             //var = _context:
         }
 
         public IActionResult Index()
         {
-            var data = _context.Products.ToList();
+            var data = _service.GetAll();
             return View(data);
         }
     }
