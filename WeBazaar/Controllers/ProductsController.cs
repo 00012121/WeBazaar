@@ -2,6 +2,7 @@
 using System.Net.WebSockets;
 using WeBazaar.Data;
 using WeBazaar.Data.Services;
+using WeBazaar.Models;
 
 namespace WeBazaar.Controllers
 {
@@ -26,6 +27,17 @@ namespace WeBazaar.Controllers
         public IActionResult Create()
         {
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create([Bind("FullName,ProfilePictureURL,Bio")] Product product)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(product);
+            }
+            _service.Add(product);
+            return RedirectToAction(nameof(Index));
         }
     }
 }
