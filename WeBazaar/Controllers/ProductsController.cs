@@ -20,5 +20,12 @@ namespace WeBazaar.Controllers
             var data = await _service.GetAll();
             return View(data);
         }
+
+
+        //Get: Products and create
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }
