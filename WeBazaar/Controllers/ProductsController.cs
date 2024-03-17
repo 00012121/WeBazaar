@@ -19,7 +19,7 @@ namespace WeBazaar.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var data = await _service.GetAll();
+            var data = await _service.GetAllAsync();
             return View(data);
         }
 
@@ -37,7 +37,7 @@ namespace WeBazaar.Controllers
             {
                 return View(product);
             }
-            _service.Add(product);
+            await _service.AddAsync(product);
             return RedirectToAction(nameof(Index));
 
         }
@@ -45,7 +45,7 @@ namespace WeBazaar.Controllers
         // Get: Actors/Details/1
         public async Task<IActionResult> Details(int id)
         {
-            var productDetails = _service.GetById(id);
+            var productDetails = await _service.GetByIdAsync(id);
 
             if (productDetails == null) return View("Empty");
             return View(productDetails);    
