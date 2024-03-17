@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using System.Net.WebSockets;
 using WeBazaar.Data;
 using WeBazaar.Data.Services;
@@ -36,12 +37,9 @@ namespace WeBazaar.Controllers
             {
                 return View(product);
             }
-            else
-            {
-                _service.Add(product);
-                return RedirectToAction(nameof(Index));
+            _service.Add(product);
+            return RedirectToAction(nameof(Index));
 
-            }
         }
     }
 }
