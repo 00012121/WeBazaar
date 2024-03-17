@@ -32,8 +32,7 @@
 
                     <div class="form-group d-flex justify-content-between" style="margin-top:2%">
                         <a class="btn btn-outline-secondary " asp-action="Index">Show all</a>
-                        <a class="btn btn-outline-success float-right" asp-action="Edit"></a>
-                        <input type="submit" value="Create" class="btn btn-outline-success " />
+                        <a class="btn btn-outline-success float-right" asp-action="Edit" asp-route-id="@Model.Id"></a>
                     </div>
             </div>
         </div>
@@ -47,10 +46,6 @@
         $(document).ready(function () {
             var output = document.getElementById('ProfilePicturePreview');
             output.src = $("#ProfilePictureURL").val();
-        })
-        $("#ProfilePictureURL").on("change", function () {
-            var output = document.getElementById('ProfilePicturePreview');
-            output.src = $(this).val();
         })
     </script>
 }
