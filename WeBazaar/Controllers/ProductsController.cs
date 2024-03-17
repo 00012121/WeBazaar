@@ -36,8 +36,12 @@ namespace WeBazaar.Controllers
             {
                 return View(product);
             }
-            _service.Add(product);
-            return RedirectToAction(nameof(Index));
+            else
+            {
+                _service.Add(product);
+                return RedirectToAction(nameof(Index));
+
+            }
         }
     }
 }
