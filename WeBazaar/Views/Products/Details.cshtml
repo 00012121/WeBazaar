@@ -32,7 +32,7 @@
 
                     <div class="form-group d-flex justify-content-between" style="margin-top:2%">
                         <a class="btn btn-outline-secondary " asp-action="Index">Show all</a>
-                        <a class="btn btn-outline-success float-right" asp-action="Edit" asp-route-id="@Model.Id"></a>
+                        <a class="btn btn-outline-success float-right" asp-action="Edit" asp-route-id="@Model.Id"> Edit </a>
                     </div>
             </div>
         </div>
@@ -42,7 +42,6 @@
 
 @section Scripts {
     <script>
-
         $(document).ready(function () {
             var output = document.getElementById('ProfilePicturePreview');
             output.src = $("#ProfilePictureURL").val();
