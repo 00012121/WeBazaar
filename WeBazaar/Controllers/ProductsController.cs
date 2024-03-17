@@ -41,5 +41,14 @@ namespace WeBazaar.Controllers
             return RedirectToAction(nameof(Index));
 
         }
+
+        // Get: Actors/Details/1
+        public async Task<IActionResult> Details(int id)
+        {
+            var productDetails = _service.GetById(id);
+
+            if (productDetails == null) return View("Empty");
+            return View(productDetails);    
+        }
     }
 }
