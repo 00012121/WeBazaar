@@ -34,9 +34,11 @@ namespace WeBazaar.Data.Services
             return result;
         }
 
-        public Product Update(int id, Product newProduct)
+        public async Task<Product> UpdateAsync(int id, Product newProduct)
         {
-            throw new NotImplementedException();
+            _context.Update(newProduct);
+            await _context.SaveChangesAsync();
+            return newProduct;
         }
     }
 }

@@ -7,7 +7,7 @@ namespace WeBazaar.Data.Services
         Task<IEnumerable<Product>> GetAllAsync();
         Task<Product> GetByIdAsync(int id);
         Task AddAsync(Product product);
-        Product Update(int id, Product newProduct);
+        Task<Product> UpdateAsync(int id, Product newProduct);
         void Delete(int id);
     }
 }
