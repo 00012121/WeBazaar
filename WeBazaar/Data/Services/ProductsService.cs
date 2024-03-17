@@ -11,10 +11,10 @@ namespace WeBazaar.Data.Services
         {
             _context = context;
         }
-        public void Add(Product product)
+        public async Task AddAsync(Product product)
         {
-            _context.Products.Add(product);
-            _context.SaveChanges();
+            await _context.Products.AddAsync(product);
+            await _context.SaveChangesAsync();
         }
 
         public void Delete(int id)
@@ -22,15 +22,16 @@ namespace WeBazaar.Data.Services
             throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<Product>> GetAll()
+        public async Task<IEnumerable<Product>> GetAllAsync()
         {
             var result = await _context.Products.ToListAsync();
             return result;
         }
 
-        public Product GetById(int id)
+        public async Task<Product> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            var result = await _context.Products.FirstOrDefaultAsync(n => n.Id == id);
+            return result;
         }
 
         public Product Update(int id, Product newProduct)
