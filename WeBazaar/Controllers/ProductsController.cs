@@ -47,8 +47,28 @@ namespace WeBazaar.Controllers
         {
             var productDetails = await _service.GetByIdAsync(id);
 
-            if (productDetails == null) return View("Empty");
+            if (productDetails == null) return View("NotFound");
             return View(productDetails);    
+        }
+
+        //Get: Products/Edit
+        public async Task<IActionResult> Edit(int id)
+        {
+            var productDetails = await _service.GetByIdAsync(id);
+            if (productDetails == null) return View("NotFound");
+            return View(productDetails);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, [Bind("Id,FullName,ProfilePictureURL,Bio")] Product product)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(product);
+            }
+            await _service.UpdateAsync(id, product);
+            return RedirectToAction(nameof(Index));
+
         }
     }
 }
