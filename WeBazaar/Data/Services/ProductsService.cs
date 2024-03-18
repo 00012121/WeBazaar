@@ -24,18 +24,6 @@ namespace WeBazaar.Data.Services
             await _context.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<Product>> GetAllAsync()
-        {
-            var result = await _context.Products.ToListAsync();
-            return result;
-        }
-
-        public async Task<Product> GetByIdAsync(int id)
-        {
-            var result = await _context.Products.FirstOrDefaultAsync(n => n.Id == id);
-            return result;
-        }
-
         public async Task<Product> UpdateAsync(int id, Product newProduct)
         {
             _context.Update(newProduct);

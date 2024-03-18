@@ -1,8 +1,16 @@
 ﻿
+using Microsoft.EntityFrameworkCore;
+using WeBazaar.Models;
+
 namespace WeBazaar.Data.Base
 {
     public class EntityBaseRepository<T> : IEntityBaseRepository<T> where T : class, IEntityBase, new()
     {
+        private readonly AppDbContext _context;
+        public EntityBaseRepository(AppDbContext context)
+        {
+            _context = context;
+        }
         public Task AddAsync(T entity)
         {
             throw new NotImplementedException();
@@ -13,14 +21,16 @@ namespace WeBazaar.Data.Base
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<T>> GetAllAsync()
+        public async Task<IEnumerable<T>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            var result = await _context.Set<T>().ToListAsync();
+            return result;
         }
 
-        public Task<T> GetByIdAsync(int id)
+        public async Task<T> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            var result = await _context.Set<T>().FirstOrDefaultAsync(n => n.Id == id);
+            return result;
         }
 
         public Task<T> UpdateAsync(int id, T entity)
