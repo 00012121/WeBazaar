@@ -17,6 +17,8 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(buil
 //Services configuration
 builder.Services.AddScoped<IProductsService, ProductsService>();
 
+builder.Services.AddScoped<IProducersService, ProducersService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
