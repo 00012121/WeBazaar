@@ -77,15 +77,14 @@ namespace WeBazaar.Controllers
             return View(productDetails);
         }
 
-        [HttpPost]
+        [HttpPost, ActionName("Delete")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (!ModelState.IsValid)
-            {
-                await _service.UpdateAsync(id, product);
-                return RedirectToAction(nameof(Index));
-            }
-            return View(product);
+            var productDetails = await _service.GetByIdAsync(id);
+            if (productDetails == null) return View("NotFound");
+
+            await _service.DeleteAsync(id);
+            return RedirectToAction(nameof(Index));
         }
     }
 }
