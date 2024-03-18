@@ -1,13 +1,10 @@
-﻿using WeBazaar.Models;
+﻿using WeBazaar.Data.Base;
+using WeBazaar.Models;
 
 namespace WeBazaar.Data.Services
 {
-    public interface IProductsService
+    public interface IProductsService:IEntityBaseRepository<Product>
     {
-        Task<IEnumerable<Product>> GetAllAsync();
-        Task<Product> GetByIdAsync(int id);
-        Task AddAsync(Product product);
-        Task<Product> UpdateAsync(int id, Product newProduct);
-        Task DeleteAsync(int id);
+
     }
 }

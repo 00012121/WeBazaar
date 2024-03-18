@@ -1,8 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using WeBazaar.Data.Base;
 
 namespace WeBazaar.Models
 {
-    public class Product
+    public class Product:IEntityBase
     {
         [Key]
         public int Id { get; set; }
