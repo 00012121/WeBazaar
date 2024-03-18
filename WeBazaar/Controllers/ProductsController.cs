@@ -35,11 +35,10 @@ namespace WeBazaar.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View(product);
+                await _service.AddAsync(product);
+                return RedirectToAction(nameof(Index));
             }
-            await _service.AddAsync(product);
-            return RedirectToAction(nameof(Index));
-
+            return View(product);
         }
 
         // Get: Actors/Details/1
@@ -51,7 +50,7 @@ namespace WeBazaar.Controllers
             return View(productDetails);    
         }
 
-        //Get: Products/Edit
+        //Get: Products/Edit/1
         public async Task<IActionResult> Edit(int id)
         {
             var productDetails = await _service.GetByIdAsync(id);
@@ -64,11 +63,29 @@ namespace WeBazaar.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View(product);
+                await _service.UpdateAsync(id, product);
+                return RedirectToAction(nameof(Index));
             }
-            await _service.UpdateAsync(id, product);
-            return RedirectToAction(nameof(Index));
+            return View(product);
+        }
 
+        //Get: Products/Delete/1
+        public async Task<IActionResult> Delete(int id)
+        {
+            var productDetails = await _service.GetByIdAsync(id);
+            if (productDetails == null) return View("NotFound");
+            return View(productDetails);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                await _service.UpdateAsync(id, product);
+                return RedirectToAction(nameof(Index));
+            }
+            return View(product);
         }
     }
 }
