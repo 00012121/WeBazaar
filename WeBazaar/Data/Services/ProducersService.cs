@@ -8,6 +8,7 @@ namespace WeBazaar.Data.Services
         public ProducersService(AppDbContext context) : base(context)
         {
                 
+
         }
     }
 }
