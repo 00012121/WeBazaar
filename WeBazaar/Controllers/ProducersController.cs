@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using WeBazaar.Data;
 using WeBazaar.Data.Services;
+using WeBazaar.Models;
 
 namespace WeBazaar.Controllers
 {
@@ -25,6 +26,64 @@ namespace WeBazaar.Controllers
             var producerDetails = await _service.GetByIdAsync(id);
             if (producerDetails == null) return View("NotFound");
             return View(producerDetails);
+        }
+
+        //GET: producers/create
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create([Bind("ProfilePicture,FullName,Bio")]Producer producer)
+        {
+            if (!ModelState.IsValid)
+            { 
+                await _service.AddAsync(producer);
+                return RedirectToAction(nameof(Index));
+            }
+            return View(producer);
+        }
+
+        //GET: producers/edit/1
+        public async Task<IActionResult> Edit(int id)
+        {
+            var producerDetails = await _service.GetByIdAsync(id);
+            if (producerDetails == null) return View("NotFound");
+            return View(producerDetails);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, [Bind("Id,ProfilePicture,FullName,Bio")] Producer producer)
+        {
+            if (!ModelState.IsValid)
+            {
+                if (id == producer.Id)
+                {
+                    await _service.UpdateAsync(id, producer);
+                    return RedirectToAction(nameof(Index));
+                }
+                return View(producer);
+            }
+            return View(producer);
+        }
+
+        //GET: producers/delete/1
+        public async Task<IActionResult> Delete(int id)
+        {
+            var producerDetails = await _service.GetByIdAsync(id);
+            if (producerDetails == null) return View("NotFound");
+            return View(producerDetails);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var producerDetails = await _service.GetByIdAsync(id);
+            if (producerDetails == null) return View("NotFound");
+
+            await _service.DeleteAsync(id);
+            return RedirectToAction(nameof(Index)); 
         }
     }
 }
