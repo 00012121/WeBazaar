@@ -37,7 +37,7 @@ namespace WeBazaar.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([Bind("ProfilePicture,FullName,Bio")]Producer producer)
         {
-            if (!ModelState.IsValid)
+            if (producer.FullName != null && producer.ProfilePicture != null && producer.Bio != null)
             { 
                 await _service.AddAsync(producer);
                 return RedirectToAction(nameof(Index));
@@ -56,7 +56,7 @@ namespace WeBazaar.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(int id, [Bind("Id,ProfilePicture,FullName,Bio")] Producer producer)
         {
-            if (!ModelState.IsValid)
+            if (producer.FullName != null && producer.ProfilePicture != null && producer.Bio != null)
             {
                 if (id == producer.Id)
                 {
