@@ -13,6 +13,7 @@ namespace WeBazaar.Data
 
                 context.Database.EnsureCreated();
 
+
                 //Company
                 if(!context.Companies.Any()) 
                 {
@@ -51,7 +52,6 @@ namespace WeBazaar.Data
                     });
                     context.SaveChanges();
                 }
-
 
                 //Products
                 if (!context.Products.Any())
@@ -146,8 +146,8 @@ namespace WeBazaar.Data
                             ImageURL = "https://avatars.mds.yandex.net/i?id=b3179fb65f58ae84b963126ff6b07348a962b73b-10114558-images-thumbs&n=13",
                             StartDate = DateTime.Now.AddDays(-10),
                             EndDate = DateTime.Now.AddDays(10),
-                            CompanyId = 8,
-                            ProducerId = 8,
+                            CompanyId = 1,
+                            ProducerId = 1,
                             ItemCategory = ItemCategory.Grocery
                         },
                         new Item()
@@ -158,8 +158,8 @@ namespace WeBazaar.Data
                             ImageURL = "https://avatars.mds.yandex.net/i?id=cfa59205825b4acbe14fccd8669a5b41a8b2fe7e-9832347-images-thumbs&n=13",
                             StartDate = DateTime.Now,
                             EndDate = DateTime.Now.AddDays(3),
-                            CompanyId = 6,
-                            ProducerId = 6,
+                            CompanyId = 2,
+                            ProducerId = 2,
                             ItemCategory = ItemCategory.Household
                         },
                         new Item()
@@ -170,8 +170,8 @@ namespace WeBazaar.Data
                             ImageURL = "https://avatars.mds.yandex.net/i?id=f096fd6b970a9b7d7f1444a20b53d974-5886407-images-thumbs&n=13",
                             StartDate = DateTime.Now,
                             EndDate = DateTime.Now.AddDays(7),
-                            CompanyId = 9,
-                            ProducerId = 9,
+                            CompanyId = 3,
+                            ProducerId = 3,
                             ItemCategory = ItemCategory.Diary
                         },
                         new Item()
@@ -182,8 +182,8 @@ namespace WeBazaar.Data
                             ImageURL = "https://avatars.mds.yandex.net/i?id=fea9e0fb3dcc139146140c6711ced01d231e61c8-5669034-images-thumbs&n=13",
                             StartDate = DateTime.Now.AddDays(-10),
                             EndDate = DateTime.Now.AddDays(-5),
-                            CompanyId = 6,
-                            ProducerId = 7,
+                            CompanyId = 4,
+                            ProducerId = 4,
                             ItemCategory = ItemCategory.CannedGoods
                         },
                         new Item()
@@ -194,8 +194,8 @@ namespace WeBazaar.Data
                             ImageURL = "https://avatars.mds.yandex.net/i?id=b1dec33206bb582cbb32e6d4e9661495af0b5df3-5233733-images-thumbs&n=13",
                             StartDate = DateTime.Now.AddDays(-10),
                             EndDate = DateTime.Now.AddDays(-2),
-                            CompanyId = 6,
-                            ProducerId = 8,
+                            CompanyId = 5,
+                            ProducerId = 5,
                             ItemCategory = ItemCategory.PersonalCare
                         },
                         new Item()
@@ -206,12 +206,12 @@ namespace WeBazaar.Data
                             ImageURL = "https://avatars.mds.yandex.net/i?id=37f93a9b42e424d0cec760d9af011fc75c1be8d2-9231415-images-thumbs&n=13",
                             StartDate = DateTime.Now.AddDays(3),
                             EndDate = DateTime.Now.AddDays(20),
-                            CompanyId = 6,
-                            ProducerId = 10,
+                            CompanyId = 1,
+                            ProducerId = 1,
                             ItemCategory = ItemCategory.Diary
                         }
                     });
-                    context.SaveChanges();
+                   context.SaveChanges();
                 }
 
                 //Products & Items
