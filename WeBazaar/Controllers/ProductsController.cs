@@ -33,7 +33,7 @@ namespace WeBazaar.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([Bind("FullName,ProfilePictureURL,Bio")] Product product)
         {
-            if (!ModelState.IsValid)
+            if (product.FullName != null && product.ProfilePictureURL != null && product.Bio != null)
             {
                 await _service.AddAsync(product);
                 return RedirectToAction(nameof(Index));
@@ -41,7 +41,7 @@ namespace WeBazaar.Controllers
             return View(product);
         }
 
-        // Get: Actors/Details/1
+        // Get: Products/Details/1
         public async Task<IActionResult> Details(int id)
         {
             var productDetails = await _service.GetByIdAsync(id);
@@ -61,7 +61,7 @@ namespace WeBazaar.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(int id, [Bind("Id,FullName,ProfilePictureURL,Bio")] Product product)
         {
-            if (!ModelState.IsValid)
+            if (product.FullName != null && product.ProfilePictureURL != null && product.Bio != null)
             {
                 await _service.UpdateAsync(id, product);
                 return RedirectToAction(nameof(Index));
