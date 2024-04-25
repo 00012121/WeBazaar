@@ -30,11 +30,21 @@ namespace WeBazaar.Data.Base
 
         public async Task<IEnumerable<T>> GetAllAsync() => await _context.Set<T>().ToListAsync();
 
-        public async Task<IEnumerable<T>> GetAsync(params Expression<Func<T, object>>[] includeProperties)
+        public Task<IEnumerable<T>> GetAllAsync(Func<object, object> value)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<IEnumerable<T>> GetAllAsync(params Expression<Func<T, object>>[] includeProperties)
         {
             IQueryable<T> query = _context.Set<T>();
             query = includeProperties.Aggregate(query, (current, includeProperty) => current.Include(includeProperty));
             return await query.ToListAsync();
+        }
+
+        public Task<IEnumerable<T>> GetAsync(params Expression<Func<T, object>>[] includeProperties)
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<T> GetByIdAsync(int id) => await _context.Set<T>().FirstOrDefaultAsync(n => n.Id == id);
