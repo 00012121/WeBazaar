@@ -1,10 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using WeBazaar.Data.Base;
 using WeBazaar.Data.Enums;
 
 namespace WeBazaar.Models
 {
-    public class Item
+    public class Item:IEntityBase
     {
         [Key]
         public int Id { get; set; }

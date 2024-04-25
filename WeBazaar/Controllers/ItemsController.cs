@@ -1,22 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WeBazaar.Data;
+using WeBazaar.Data.Services;
 
 namespace WeBazaar.Controllers
 {
     public class ItemsController : Controller
     {
-        private readonly AppDbContext _context;
+        private readonly IItemsService _service;
 
 
-        public ItemsController(AppDbContext context)
+        public ItemsController(IItemsService service)
         {
-            _context = context;
+            _service = service;
         }
 
         public async Task<IActionResult> Index()
         {
-            var allItems = await _context.Items.Include(n => n.Company).OrderBy(n => n.Name).ToListAsync();
+            var allItems = await _service.GetAllAsync();
             return View(allItems);
         }
     }
