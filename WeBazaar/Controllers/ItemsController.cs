@@ -27,5 +27,14 @@ namespace WeBazaar.Controllers
             var itemDetail = await _service.GetItemByIdAsync(id);
             return View(itemDetail);
         }
+
+        //GET: Items/Create 
+        public IActionResult Create()
+        {
+            ViewData["Welcome"] = "Welcome to our store";
+            ViewBag.Description = "This is the ecommerce description";
+
+            return View();
+        }
     }
 }
