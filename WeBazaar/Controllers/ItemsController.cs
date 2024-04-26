@@ -32,7 +32,7 @@ namespace WeBazaar.Controllers
         public IActionResult Create()
         {
             ViewData["Welcome"] = "Welcome to our store";
-            ViewBag.Description = "This is the ecommerce description";
+            ViewBag.Description = "This is the ecommerce description";  
 
             return View();
         }
