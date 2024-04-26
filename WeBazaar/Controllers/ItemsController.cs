@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using WeBazaar.Data;
 using WeBazaar.Data.Services;
@@ -29,10 +30,13 @@ namespace WeBazaar.Controllers
         }
 
         //GET: Items/Create 
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            ViewData["Welcome"] = "Welcome to our store";
-            ViewBag.Description = "This is the ecommerce description";  
+            var itemDropdownsData = await _service.GetNewItemDropdownsValues();
+
+            ViewBag.Companies = new SelectList(itemDropdownsData.Companies, "Id", "Name");
+            ViewBag.Products = new SelectList(itemDropdownsData.Products, "Id", "FullName");
+            ViewBag.Producers = new SelectList(itemDropdownsData.Producers, "Id", "FullName");
 
             return View();
         }
