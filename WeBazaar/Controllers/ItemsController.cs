@@ -20,5 +20,12 @@ namespace WeBazaar.Controllers
             var allItems = await _service.GetAllAsync(n => n.Company);
             return View(allItems);
         }
+
+        //Get: Items/Details/1
+        public async Task<IActionResult> Details(int id)
+        {
+            var itemDetail = await _service.GetItemByIdAsync(id);
+            return View(itemDetail);
+        }
     }
 }

@@ -1,0 +1,99 @@
+﻿@model Item
+
+@{
+    ViewData["Title"] = "Item details";
+}
+
+@*
+    This is the card of an Model or product, which is displayed on the main page
+    Multiple Models are displayed on the Models page
+*@
+<div class="row">
+    
+        <div class="col-md-8 offset-2">
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-12">
+                        <div class="card-header text-white bg-info">
+                            <p class="card-text">
+                                <h5 class="card-title">
+
+                                    @Model.Name
+
+                                </h5>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="@Model.ImageURL" width="100%" alt="@Model.Name">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <p class="card-text"><b>Description: </b>@Model.Description</p>
+                            <p class="card-text"><b>Company: </b>
+                            <a asp-controller="Companies" asp-action="Details" asp-route-id="@Model.CompanyId">
+                                @Model.Company.Name
+                            </a>    
+                            </p>
+                            <p class="card-text">
+                                <b>Producer: </b>
+                                <a asp-controller="Producers" asp-action="Details" asp-route-id="@Model.ProducerId">
+                                    @Model.Producer.FullName
+                                </a>
+                            </p>
+                            <p class="card-text"><b>Category: </b>@Model.ItemCategory</p>
+                            <p class="card-text"><b>Start Date: </b>@Model.StartDate.ToString("dd MMM yy")</p>
+                            @*<p class="card-text"><b>End Date: </b>@Model.EndDate.ToString("dd MMM yy")</p>*@
+                            <p class="card-text ">
+                                <b>Status: </b>
+                                @if (DateTime.Now >= Model.StartDate && DateTime.Now <= Model.EndDate)
+                                {
+                                    <span class="badge bg-success text-white">AVAILABLE</span>
+                                }
+                                else if (DateTime.Now > Model.EndDate)
+                                {
+                                    <span class="badge bg-danger text-white">SOLD OUT</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-danger text-white">SOLD OUT</span>
+                                }
+                            </p>
+
+                            <p class="card-text">
+                                <b>Products: </b>
+                                <hr />
+                                <div class="row">
+                                @foreach (var product in Model.Products_Items)
+                                {
+                                    <div class="cloumn text-center">
+                                        <img class="border-info rounded-circle" src="@product.Product.ProfilePictureURL" style="max-width: 150px"/>
+                                        <br />
+                                        <a asp-controller="Products" asp-action="Details" asp-route-id="@product.ProductId">@product.Product.FullName</a>
+                                    </div>
+                                }
+                                </div>
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="card-footer ">
+                            <p class="card-text">
+                                <a class="btn btn-outline-primary float-right" asp-action="Index" >
+                                    Back to list
+                                </a>
+                                <a class="btn btn-success text-white @((DateTime.Now > Model.EndDate) ? "disabled" : "")"
+                                   asp-controller="Orders"
+                                   asp-action="AddModelToShoppingCart"
+                                   asp-route-id="@Model.Id">
+                                    <i class="bi bi-cart-plus"></i> Add to Cart (Price @Model.Price.ToString("c"))
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</div>

@@ -148,7 +148,8 @@ namespace WeBazaar.Data
                             EndDate = DateTime.Now.AddDays(10),
                             CompanyId = 1,
                             ProducerId = 1,
-                            ItemCategory = ItemCategory.Grocery
+                            ItemCategory = ItemCategory.Grocery,
+                            //Products_Items = new List<Product_Item>()
                         },
                         new Item()
                         {
@@ -210,7 +211,7 @@ namespace WeBazaar.Data
                             ProducerId = 1,
                             ItemCategory = ItemCategory.Diary
                         }
-                    });
+                    }) ;
                    context.SaveChanges();
                 }
 

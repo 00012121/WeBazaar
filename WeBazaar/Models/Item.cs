@@ -19,6 +19,9 @@ namespace WeBazaar.Models
         public ItemCategory ItemCategory { get; set; }
 
         //Relationship with product
+        /// <summary>
+        /// public  int ProductId { get; set; }
+        /// </summary>
         public List<Product_Item> Products_Items { get; set; }
 
 
@@ -32,5 +35,6 @@ namespace WeBazaar.Models
         //[ForeignKey("ProducerId")]
         public int ProducerId { get; set; }
         public Producer Producer { get; set; }
+
     }
 }
