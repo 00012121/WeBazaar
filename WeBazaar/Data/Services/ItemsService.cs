@@ -13,6 +13,36 @@ namespace WeBazaar.Data.Services
             _context = context;
         }
 
+        public async Task AddNewItemAsync(NewItemVM data)
+        {
+            var newItem = new Item()
+            {
+                Name = data.Name,
+                Description = data.Description,
+                Price = data.Price,
+                ImageURL = data.ImageURL,
+                CompanyId = data.CompanyId,
+                StartDate = data.StartDate,
+                EndDate = data.EndDate,
+                ItemCategory = data.ItemCategory,
+                ProducerId = data.ProducerId,
+            };
+            await _context.Items.AddAsync(newItem);
+            await _context.SaveChangesAsync();
+
+            //Add item similar products
+            foreach (var productId in data.ProductIds)
+            {
+                var newProductItem = new Product_Item()
+                {
+                    ItemId = newItem.Id,
+                    ProductId = productId,
+                };
+                await _context.Products_Items.AddAsync(newProductItem);
+            }
+            await _context.SaveChangesAsync();
+        }
+
         public async Task<Item> GetItemByIdAsync(int id)
         {
             var itemDetails = await _context.Items

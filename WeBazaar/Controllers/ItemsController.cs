@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using WeBazaar.Data;
 using WeBazaar.Data.Services;
+using WeBazaar.Models;
 
 namespace WeBazaar.Controllers
 {
@@ -39,6 +40,24 @@ namespace WeBazaar.Controllers
             ViewBag.Producers = new SelectList(itemDropdownsData.Producers, "Id", "FullName");
 
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(NewItemVM item)
+        {
+            if (!ModelState.IsValid)
+            {
+                var itemDropdownsData = await _service.GetNewItemDropdownsValues();
+
+                ViewBag.Companies = new SelectList(itemDropdownsData.Companies, "Id", "Name");
+                ViewBag.Products = new SelectList(itemDropdownsData.Products, "Id", "FullName");
+                ViewBag.Producers = new SelectList(itemDropdownsData.Producers, "Id", "FullName");
+
+                return View(item);
+            }
+
+            await _service.AddNewItemAsync(item);
+            return RedirectToAction(nameof(Index));
         }
     }
 }
