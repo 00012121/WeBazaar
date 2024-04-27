@@ -5,7 +5,7 @@ namespace WeBazaar.Models
 {
     public class Company : IEntityBase
     {
-        [Key]
+        //[Key]
         public int Id { get; set; }
 
         [Display(Name= "Company logo")]

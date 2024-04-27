@@ -26,14 +26,14 @@ namespace WeBazaar.Models
 
 
         //Company
-        public int CompanyId { get; set; }
         [ForeignKey("CompanyId")]
+        public int CompanyId { get; set; }
         public Company Company { get; set; }
 
 
         //Producer
-        public int ProducerId { get; set; }
         [ForeignKey("ProducerId")]
+        public int ProducerId { get; set; }
         public Producer Producer { get; set; }
 
     }

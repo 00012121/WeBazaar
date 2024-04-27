@@ -7,7 +7,7 @@ namespace WeBazaar.Data
     {
         public static void Seed(IApplicationBuilder applicationBuilder)
         {
-            using(var serviceScope = applicationBuilder.ApplicationServices.CreateScope()) 
+            using (var serviceScope = applicationBuilder.ApplicationServices.CreateScope())
             {
                 var context = serviceScope.ServiceProvider.GetService<AppDbContext>();
 
@@ -15,7 +15,7 @@ namespace WeBazaar.Data
 
 
                 //Company
-                if(!context.Companies.Any()) 
+                if (!context.Companies.Any())
                 {
                     context.Companies.AddRange(new List<Company>()
                     {
@@ -211,8 +211,8 @@ namespace WeBazaar.Data
                             ProducerId = 1,
                             ItemCategory = ItemCategory.Diary
                         }
-                    }) ;
-                   context.SaveChanges();
+                    });
+                    context.SaveChanges();
                 }
 
                 //Products & Items
