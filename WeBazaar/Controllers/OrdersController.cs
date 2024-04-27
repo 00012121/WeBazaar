@@ -11,7 +11,7 @@ namespace WeBazaar.Controllers
         private readonly ShoppingCart _shoppingCart;
         public OrdersController(IItemsService itemsService, ShoppingCart shoppingCart)
         {
-            _itemsService = itemsService;    
+            _itemsService = itemsService;
             _shoppingCart = shoppingCart;
         }
         public IActionResult ShoppingCart()
@@ -25,6 +25,17 @@ namespace WeBazaar.Controllers
             };
 
             return View(response);
+        }
+
+        public async Task<RedirectToActionResult> AddItemToShoppingCart(int id)
+        {
+            var item = await _itemsService.GetItemByIdAsync(id);
+
+            if (item != null)
+            {
+                _shoppingCart.AddItemToCart(item);
+            }
+            return RedirectToAction(nameof(ShoppingCart));
         }
     }
 }
