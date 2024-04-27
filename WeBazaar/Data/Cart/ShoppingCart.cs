@@ -14,6 +14,31 @@ namespace WeBazaar.Data.Cart
             _context = context;
         }
 
+        public void AddItemToCart(Item item)
+        {
+            var shoppingCartItem = _context.ShoppingCartItems.FirstOrDefault(n => n.Item.Id == item.Id &&
+                n.ShoppingCartId == ShoppingCartId);
+
+            if (shoppingCartItem == null)
+            {
+
+                shoppingCartItem = new ShoppingCartItem()
+                {
+                    ShoppingCartId = ShoppingCartId,
+                    Item = item,
+                    Amount = 1
+                };
+
+                _context.ShoppingCartItems.Add(shoppingCartItem);
+            }
+            else
+            {
+                shoppingCartItem.Amount++;
+            }
+
+            _context.SaveChanges();
+        }
+
         public List<ShoppingCartItem> GetShoppingCartItems()
         {
             return ShoppingCartItems ?? (ShoppingCartItems = _context.ShoppingCartItems.Where(n => n.ShoppingCartId ==
@@ -22,7 +47,7 @@ namespace WeBazaar.Data.Cart
 
         public double GetShoppingCartTotal() => _context.ShoppingCartItems.Where(n => n.ShoppingCartId ==
             ShoppingCartId).Select(n => n.Item.Price * n.Amount).Sum();
-           
+
 
     }
 }
