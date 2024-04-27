@@ -26,17 +26,17 @@
                         </li>
 
                         <li class="nav-item flex-grow dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" 
-                                    aria-haspopup="true" aria-expanded="false">
-                                    <i class="bi bi-gear"></i> Management
-                                </a>
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">
+                                <i class="bi bi-gear"></i> Management
+                            </a>
 
-                                <div class="dropdown-menu " aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" asp-controller="Companies" asp-action="Index"><i class="bi bi-building"></i>Companies</a>
-                                    <a class="dropdown-item" asp-controller="Producers" asp-action="Index"><i class="bi bi-person-square"></i>Producers</a>
-                                    <a class="dropdown-item" asp-controller="Products" asp-action="Index"><i class="bi bi-phone"></i>Products</a>
-                                </div>
-                            </li>
+                            <div class="dropdown-menu " aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" asp-controller="Companies" asp-action="Index"><i class="bi bi-building"></i>Companies</a>
+                                <a class="dropdown-item" asp-controller="Producers" asp-action="Index"><i class="bi bi-person-square"></i>Producers</a>
+                                <a class="dropdown-item" asp-controller="Products" asp-action="Index"><i class="bi bi-phone"></i>Products</a>
+                            </div>
+                        </li>
                     </ul>
 
                     <form class="form-inline my-2 my-lg-0" asp-controller="Items" asp-action="Filter" style="padding-right: 25px;">
@@ -50,6 +50,20 @@
                         @await Component.InvokeAsync("ShoppingCartSummary")
                     </ul>
 
+                    @*User profile section*@
+                    <div class=" flex-grow dropdown">
+                        <button class="btn btn-outline-success dropdown-toggle" type="button" id="profile-btn" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person-badge"></i> Hello User
+                        </button>
+                        <ul class="dropdown-menu" area-labelledby="profile-btn">
+                            <li>
+                                <a class="dropdown-item" asp-controller="Orders" asp-action="Index">
+                                    <i class="bi bi-list"></i>Orders
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
                 </div>
             </div>
         </nav>
@@ -61,13 +75,13 @@
     </div>
 
     @* <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - WeBazaar
-        </div>
+    <div class="container">
+    &copy; 2024 - WeBazaar
+    </div>
     </footer> *@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-     @await RenderSectionAsync("Scripts", required: false)
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
