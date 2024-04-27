@@ -65,5 +65,42 @@ namespace WeBazaar.Data.Services
 
             return response;
         }
+
+        public async Task UpdateItemAsync(NewItemVM data)
+        {
+            var dbItem = await _context.Items.FirstOrDefaultAsync(n => n.Id == data.Id);
+
+            if(dbItem != null)
+            {
+                dbItem.Name = data.Name;
+                dbItem.Description = data.Description;
+                dbItem.Price = data.Price;
+                dbItem.ImageURL = data.ImageURL;
+                dbItem.CompanyId = data.CompanyId;
+                dbItem.StartDate = data.StartDate;
+                dbItem.EndDate = data.EndDate;
+                dbItem.ItemCategory = data.ItemCategory;
+                dbItem.ProducerId = data.ProducerId;
+                await _context.SaveChangesAsync();
+
+            }
+
+            //Remove existing products
+            var existingProductsDb = _context.Products_Items.Where(n => n.ItemId == data.Id).ToList();  
+            _context.Products_Items.RemoveRange(existingProductsDb);
+            await _context.SaveChangesAsync();
+
+            //Add item similar products
+            foreach (var productId in data.ProductIds)
+            {
+                var newProductItem = new Product_Item()
+                {
+                    ItemId = data.Id,
+                    ProductId = productId,
+                };
+                await _context.Products_Items.AddAsync(newProductItem);
+            }
+            await _context.SaveChangesAsync();
+        }
     }
 }

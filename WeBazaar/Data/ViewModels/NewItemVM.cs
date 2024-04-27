@@ -7,6 +7,8 @@ namespace WeBazaar.Models
 {
     public class NewItemVM
     {
+        public int Id { get; set; }
+
         [Display(Name = "Item name")]
         [Required(ErrorMessage = "Name is required")]
         public string Name { get; set; }
