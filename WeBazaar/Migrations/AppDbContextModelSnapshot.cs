@@ -94,6 +94,56 @@ namespace WeBazaar.Migrations
                     b.ToTable("Items");
                 });
 
+            modelBuilder.Entity("WeBazaar.Models.Order", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("WeBazaar.Models.OrderItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ItemId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ItemId");
+
+                    b.HasIndex("OrderId");
+
+                    b.ToTable("Orders_Items");
+                });
+
             modelBuilder.Entity("WeBazaar.Models.Producer", b =>
                 {
                     b.Property<int>("Id")
@@ -108,7 +158,8 @@ namespace WeBazaar.Migrations
 
                     b.Property<string>("FullName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("ProfilePicture")
                         .IsRequired()
@@ -133,7 +184,8 @@ namespace WeBazaar.Migrations
 
                     b.Property<string>("FullName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("ProfilePictureURL")
                         .IsRequired()
@@ -178,6 +230,25 @@ namespace WeBazaar.Migrations
                     b.Navigation("Producer");
                 });
 
+            modelBuilder.Entity("WeBazaar.Models.OrderItem", b =>
+                {
+                    b.HasOne("WeBazaar.Models.Item", "Item")
+                        .WithMany()
+                        .HasForeignKey("ItemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("WeBazaar.Models.Order", "Order")
+                        .WithMany("OrderItems")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Item");
+
+                    b.Navigation("Order");
+                });
+
             modelBuilder.Entity("WeBazaar.Models.Product_Item", b =>
                 {
                     b.HasOne("WeBazaar.Models.Item", "Item")
@@ -205,6 +276,11 @@ namespace WeBazaar.Migrations
             modelBuilder.Entity("WeBazaar.Models.Item", b =>
                 {
                     b.Navigation("Products_Items");
+                });
+
+            modelBuilder.Entity("WeBazaar.Models.Order", b =>
+                {
+                    b.Navigation("OrderItems");
                 });
 
             modelBuilder.Entity("WeBazaar.Models.Producer", b =>

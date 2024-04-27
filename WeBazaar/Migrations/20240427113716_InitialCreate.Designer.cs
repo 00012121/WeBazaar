@@ -12,8 +12,8 @@ using WeBazaar.Data;
 namespace WeBazaar.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240325122714_InitialCreate4")]
-    partial class InitialCreate4
+    [Migration("20240427113716_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -95,6 +95,56 @@ namespace WeBazaar.Migrations
                     b.HasIndex("ProducerId");
 
                     b.ToTable("Items");
+                });
+
+            modelBuilder.Entity("WeBazaar.Models.Order", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("WeBazaar.Models.OrderItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ItemId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ItemId");
+
+                    b.HasIndex("OrderId");
+
+                    b.ToTable("Orders_Items");
                 });
 
             modelBuilder.Entity("WeBazaar.Models.Producer", b =>
@@ -183,6 +233,25 @@ namespace WeBazaar.Migrations
                     b.Navigation("Producer");
                 });
 
+            modelBuilder.Entity("WeBazaar.Models.OrderItem", b =>
+                {
+                    b.HasOne("WeBazaar.Models.Item", "Item")
+                        .WithMany()
+                        .HasForeignKey("ItemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("WeBazaar.Models.Order", "Order")
+                        .WithMany("OrderItems")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Item");
+
+                    b.Navigation("Order");
+                });
+
             modelBuilder.Entity("WeBazaar.Models.Product_Item", b =>
                 {
                     b.HasOne("WeBazaar.Models.Item", "Item")
@@ -210,6 +279,11 @@ namespace WeBazaar.Migrations
             modelBuilder.Entity("WeBazaar.Models.Item", b =>
                 {
                     b.Navigation("Products_Items");
+                });
+
+            modelBuilder.Entity("WeBazaar.Models.Order", b =>
+                {
+                    b.Navigation("OrderItems");
                 });
 
             modelBuilder.Entity("WeBazaar.Models.Producer", b =>
