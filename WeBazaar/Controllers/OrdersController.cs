@@ -37,5 +37,16 @@ namespace WeBazaar.Controllers
             }
             return RedirectToAction(nameof(ShoppingCart));
         }
+
+        public async Task<IActionResult> RemoveItemFromShoppingCart(int id)
+        {
+            var item = await _itemsService.GetItemByIdAsync(id);
+
+            if (item != null)
+            {
+                _shoppingCart.RemoveItemFromCart(item);
+            }
+            return RedirectToAction(nameof(ShoppingCart));
+        }
     }
 }
