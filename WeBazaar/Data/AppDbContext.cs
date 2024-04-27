@@ -38,6 +38,7 @@ namespace WeBazaar.Data
         ///Orders related tables
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> Orders_Items { get; set; }
+        public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
 
     }
 }
