@@ -1,6 +1,6 @@
 ﻿@model ShoppingCartVM
 @using WeBazaar.Data.ViewModels;
- 
+
 @{
     ViewData["Title"] = "Shopping cart summary";
 }
@@ -34,7 +34,7 @@
                                asp-route-id="@item.Item.Id">
                                 <i class="bi bi-cart-dash"></i>
                             </a>
-                             | 
+                            |
                             <a class="text-success" asp-controller="Orders" asp-action="AddItemToShoppingCart"
                                asp-route-id="@item.Item.Id">
                                 <i class="bi bi-cart-plus"></i>
@@ -54,12 +54,14 @@
                 </tr>
             </tfoot>
         </table>
-        
-        <div class="text-center">
+
+        <div class="text-right">
             <div class="btn-group">
-                <a class="btn btn-outline-primary" asp-action="CompleteOrder">
+                @* <a class="btn btn-outline-primary" asp-action="CompleteOrder">
                     Complete Order
-                </a>
+                </a> *@
+                <div id="paypal-btn"></div>
+                <span style="padding:5px"></span>
                 <a class="btn btn-outline-success" asp-controller="Items" asp-action="Index">
                     Add more items
                 </a>
@@ -68,3 +70,38 @@
 
     </div>
 </div>
+
+@section Scripts{
+    
+    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+
+    <script>
+        paypal.Button.render({
+            //Configure environment
+            env: 'sandbox',
+            client: {
+                sandbox: 'AUHpzcbApKPaNDpihoi70mKXsbJld3XpTdwrJTu36HdTA7eApPZKipWF6_sWjiwe8x1Y2Ti4a6AujlL-'
+            },
+
+            //Customize button
+            locale: 'en_US',
+            style: {
+                size:'small',
+                color:'gold',
+                shape:'pill'
+            },
+            commit:true,
+
+            //Set-up a payment
+            payment: function (data, actions) {
+                console.log("payment set-up")
+            }
+
+            //Execute the payment
+            onAuthorize: function (data, actions) {
+                console.log("payment executed")
+            }
+
+        }, '#paypal-btn')
+    </script>
+}
