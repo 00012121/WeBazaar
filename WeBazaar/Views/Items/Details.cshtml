@@ -87,7 +87,8 @@
                                 <a class="btn btn-success text-white @((DateTime.Now > Model.EndDate) ? "disabled" : "")"
                                    asp-controller="Orders"
                                    asp-action="AddItemToShoppingCart"
-                                   asp-route-id="@Model.Id">
+                                   asp-route-id="@Model.Id"
+                                   style="margin:5px padding:5px">
                                     <i class="bi bi-cart-plus"></i> Add to Cart (Price: @Model.Price.ToString("c", new CultureInfo("uz-UZ")) )
                                 </a>
                             </p>
