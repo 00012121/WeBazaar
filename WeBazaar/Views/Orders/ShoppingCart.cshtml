@@ -59,7 +59,7 @@
         <div style="display: flex; justify-content: flex-end;">
             <div class="btn-group">
                 @* <a class="btn btn-outline-primary" asp-action="CompleteOrder">
-                    Complete Order
+                Complete Order
                 </a> *@
                 <div id="paypal-btn"></div>
                 <span style="padding:5px"></span>
@@ -72,8 +72,8 @@
     </div>
 </div>
 
-@* @section Scripts{
-    
+@section Scripts {
+
     <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 
     <script>
@@ -102,7 +102,7 @@
                     transactions: [{
                         amount: {
                             total: _total,
-                            currency: 'UZS'
+                            currency: 'USD'
                         }
                     }]
                 });
@@ -118,7 +118,8 @@
 
         }, '#paypal-btn');
     </script>
- *@
+}
+@*
 @section Scripts {
 
     <script src="https://www.paypalobjects.com/api/checkout.js"></script>
@@ -170,4 +171,4 @@
         renderPayPalButton();
     </script>
 }
- 
+ *@

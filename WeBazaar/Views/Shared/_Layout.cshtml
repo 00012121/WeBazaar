@@ -25,6 +25,7 @@
                             <a class="nav-link text-dark" asp-controller="Items" asp-action="Index"><i class="badge-info bi-bag" style="padding-right:5px;"></i>Items</a>
                         </li>
 
+                        @* @if(User.Identity.IsAuthenticated && User.IsInRole("Admin")){} *@
                         <li class="nav-item flex-grow dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                                aria-haspopup="true" aria-expanded="false">

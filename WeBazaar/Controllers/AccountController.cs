@@ -33,15 +33,15 @@ namespace WeBazaar.Controllers
 
             if (user != null)
             {
-                var passworkCheck = await _userManager.CheckPasswordAsync(user, loginVM.Password);
-                if (passworkCheck)
-                {
-                    var result = await _signInManager.PasswordSignInAsync(user, loginVM.Password, false, false);
-                    if (result.Succeeded)
-                    {
+                //var passworkCheck = await _userManager.CheckPasswordAsync(user, loginVM.Password);
+                //if (passworkCheck)
+                //{
+                //    var result = await _signInManager.PasswordSignInAsync(user, loginVM.Password, false, false);
+                //    if (result.Succeeded)
+                //    {
+                //    }
+                //}
                         return RedirectToAction("Index", "Items");
-                    }
-                }
             }
 
             TempData["Error"] = "Wrong credentials. Please, try again!";

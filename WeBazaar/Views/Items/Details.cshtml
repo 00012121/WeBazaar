@@ -43,26 +43,26 @@
                                 </a>
                             </p>
                             <p class="card-text"><b>Category: </b>@Model.ItemCategory</p>
-                            <p class="card-text"><b>Start Date: </b>@Model.StartDate.ToString("dd MMM yy")</p>
-                            @*<p class="card-text"><b>End Date: </b>@Model.EndDate.ToString("dd MMM yy")</p>*@
+                            <p class="card-text"><b>Discount Start Date: </b>@Model.StartDate.ToString("dd MMM yy")</p>
+                            <p class="card-text"><b>Discount End Date: </b>@Model.EndDate.ToString("dd MMM yy")</p>
                             <p class="card-text ">
-                                <b>Status: </b>
+                                <b>Discount Status: </b>
                                 @if (DateTime.Now >= Model.StartDate && DateTime.Now <= Model.EndDate)
                                 {
-                                    <span class="badge bg-success text-white">AVAILABLE</span>
+                                    <span class="badge bg-success text-white">ON %SALE%</span>
                                 }
                                 else if (DateTime.Now > Model.EndDate)
                                 {
-                                    <span class="badge bg-danger text-white">SOLD OUT</span>
+                                    <span class="badge bg-danger text-white">NO DISCOUNT</span>
                                 }
                                 else
                                 {
-                                    <span class="badge bg-danger text-white">SOLD OUT</span>
+                                    <span class="badge bg-danger text-white">NO DISCOUNT</span>
                                 }
                             </p>
 
                             <p class="card-text">
-                                <b>Products: </b>
+                                <b>Similar Products: </b>
                                 <hr />
                                 <div class="row">
                                 @foreach (var product in Model.Products_Items)

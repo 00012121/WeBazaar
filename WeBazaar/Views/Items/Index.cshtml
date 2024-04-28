@@ -35,21 +35,21 @@
                             <p class="card-text"><b>Description: </b>@item.Description</p>
                             <p class="card-text"><b>Company: </b>@item.Company.Name</p>
                             <p class="card-text"><b>Category: </b>@item.ItemCategory</p>
-                            <p class="card-text"><b>Start Date: </b>@item.StartDate.ToString("dd MMM yy")</p>
-                            @*<p class="card-text"><b>End Date: </b>@item.EndDate.ToString("dd MMM yy")</p>*@
+                            <p class="card-text"><b>Discount Start Date: </b>@item.StartDate.ToString("dd MMM yy")</p>
+                            <p class="card-text"><b>Discount End Date: </b>@item.EndDate.ToString("dd MMM yy")</p>
                             <p class="card-text ">
-                                <b>Status: </b>
+                                <b>Discount Status: </b>
                                 @if (DateTime.Now >= item.StartDate && DateTime.Now <= item.EndDate)
                                 {
-                                    <span class="badge bg-success text-white">AVAILABLE</span>
+                                    <span class="badge bg-success text-white">ON %SALE%</span>
                                 }
                                 else if (DateTime.Now > item.EndDate)
                                 {
-                                    <span class="badge bg-danger text-white">SOLD OUT</span>
+                                    <span class="badge bg-danger text-white">NO DISCOUNT</span>
                                 }
                                 else
                                 {
-                                    <span class="badge bg-danger text-white">SOLD OUT</span>
+                                    <span class="badge bg-danger text-white">NO DISCOUNT</span>
                                 }
                             </p>
 

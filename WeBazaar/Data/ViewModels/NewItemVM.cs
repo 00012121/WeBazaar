@@ -25,11 +25,11 @@ namespace WeBazaar.Models
         [Required(ErrorMessage = "Poster URL is required")]
         public string ImageURL { get; set; }
 
-        [Display(Name = "Start date")]
+        [Display(Name = "Discount Start date")]
         [Required(ErrorMessage = "Date is required")]
         public DateTime StartDate { get; set; }
 
-        [Display(Name = "End date")]
+        [Display(Name = "Discount End date")]
         [Required(ErrorMessage = "Date is required")]
         public DateTime EndDate { get; set; }
 
@@ -38,7 +38,7 @@ namespace WeBazaar.Models
         public ItemCategory ItemCategory { get; set; }
 
         //Relationship with product
-        [Display(Name = "Select similar product(s)")]
+        [Display(Name = "Select some similar product(s)")]
         [Required(ErrorMessage = "Product(s) is required")]
         public List<int> ProductIds { get; set; }
 

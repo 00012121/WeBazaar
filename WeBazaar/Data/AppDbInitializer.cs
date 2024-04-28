@@ -345,6 +345,8 @@ namespace WeBazaar.Data
                 {
                     var newAdminUser = new ApplicationUser()
                     {
+                        
+                
                         FullName = "Admin User",
                         UserName = "admin-user",
                         Email = adminUserEmail,
