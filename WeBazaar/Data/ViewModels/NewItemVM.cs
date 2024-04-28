@@ -17,7 +17,7 @@ namespace WeBazaar.Models
         [Required(ErrorMessage = "Description is required")]
         public string Description{ get; set; }
 
-        [Display(Name = "Item price in Uzbek soum")]
+        [Display(Name = "Item price in Uzbek so'm")]
         [Required(ErrorMessage = "Price is required")]
         public double Price { get; set; }
 
