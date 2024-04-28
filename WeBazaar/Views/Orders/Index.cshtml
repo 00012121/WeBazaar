@@ -1,4 +1,5 @@
-﻿@model List<Order>
+﻿@using System.Globalization
+@model List<Order>
 
 @{
     ViewData["Title"] = "All orders";
@@ -30,14 +31,14 @@
                                 {
                                     <li>
                                         <div class="alert alert-info" role="alert">
-                                            <span class="badge bg-success">@item.Amount</span>[@item.Price.ToString("c")] - @item.Item.Name
+                                            <span class="badge bg-success">@item.Amount</span>[@item.Price.ToString("c", new CultureInfo("uz-UZ"))] - @item.Item.Name
                                         </div>
                                     </li>
                                 }
                             </ul>
                         </td>
                         <td class="align-middle">
-                            @order.OrderItems.Select(m => m.Item.Price * m.Amount).Sum().ToString("c");
+                            @order.OrderItems.Select(m => m.Item.Price * m.Amount).Sum().ToString("c", new CultureInfo("uz-UZ"));
                         </td>
                         <td class="align-middle"> - </td>
                     </tr>
