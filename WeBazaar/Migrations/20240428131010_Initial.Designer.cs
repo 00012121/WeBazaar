@@ -12,8 +12,8 @@ using WeBazaar.Data;
 namespace WeBazaar.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240428082903_Initial_Create")]
-    partial class Initial_Create
+    [Migration("20240428131010_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

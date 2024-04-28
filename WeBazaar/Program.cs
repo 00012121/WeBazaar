@@ -70,7 +70,7 @@ app.MapControllerRoute(
 
 
 //Seed database
-AppDbInitializer.Seed(app);
+//AppDbInitializer.Seed(app);
 AppDbInitializer.SeedUsersAndRolesAsync(app);//.Wait();
 
 app.Run();
