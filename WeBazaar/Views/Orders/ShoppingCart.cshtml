@@ -1,4 +1,5 @@
 ﻿@model ShoppingCartVM
+@using System.Globalization
 @using WeBazaar.Data.ViewModels;
 
 @{
@@ -27,8 +28,8 @@
                     <tr>
                         <td class="align-middle">@item.Amount</td>
                         <td class="align-middle">@item.Item.Name</td>
-                        <td class="align-middle">@item.Item.Price.ToString("c")</td>
-                        <td class="align-middle">@((item.Amount * item.Item.Price).ToString("c"))</td>
+                        <td class="align-middle">@item.Item.Price.ToString("c", new CultureInfo("uz-UZ"))</td>
+                        <td class="align-middle">@((item.Amount * item.Item.Price).ToString("c", new CultureInfo("uz-UZ")))</td>
                         <td>
                             <a class="text-danger" asp-controller="Orders" asp-action="RemoveItemFromShoppingCart"
                                asp-route-id="@item.Item.Id">
@@ -48,14 +49,14 @@
                     <td colspan="2"></td>
                     <td><b>Total: </b></td>
                     <td>
-                        @Model.ShoppingCartTotal.ToString("c")
+                        @Model.ShoppingCartTotal.ToString("c", new CultureInfo("uz-UZ"))
                     </td>
                     <td></td>
                 </tr>
             </tfoot>
         </table>
 
-        <div class="text-right">
+        <div style="display: flex; justify-content: flex-end;">
             <div class="btn-group">
                 @* <a class="btn btn-outline-primary" asp-action="CompleteOrder">
                     Complete Order
@@ -71,7 +72,7 @@
     </div>
 </div>
 
-@section Scripts{
+@* @section Scripts{
     
     <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 
@@ -89,11 +90,11 @@
             //Customize button
             locale: 'en_US',
             style: {
-                size:'small',
-                color:'gold',
-                shape:'pill'
+                size: 'small',
+                color: 'gold',
+                shape: 'pill'
             },
-            commit:true,
+            commit: true,
 
             //Set-up a payment
             payment: function (data, actions) {
@@ -112,9 +113,61 @@
                 return actions.payment.execute().then(function () {
                     var url = '@Url.Action("CompleteOrder", "Orders", new { })';
                     window.location.href = url;
-                })
+                });
             }
 
-        }, '#paypal-btn')
+        }, '#paypal-btn');
+    </script>
+ *@
+@section Scripts {
+
+    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+
+    <script>
+        // Function to render PayPal button
+        function renderPayPalButton() {
+            let _total = @Html.Raw(Model.ShoppingCartTotal);
+
+            paypal.Button.render({
+                // Configure environment
+                env: 'sandbox',
+                client: {
+                    sandbox: 'AUHpzcbApKPaNDpihoi70mKXsbJld3XpTdwrJTu36HdTA7eApPZKipWF6_sWjiwe8x1Y2Ti4a6AujlL-'
+                },
+
+                // Customize button
+                locale: 'en_US',
+                style: {
+                    size: 'small',
+                    color: 'gold',
+                    shape: 'pill'
+                },
+                commit: true,
+
+                // Set-up a payment
+                payment: function (data, actions) {
+                    return actions.payment.create({
+                        transactions: [{
+                            amount: {
+                                total: _total,
+                                currency: 'UZS'
+                            }
+                        }]
+                    });
+                },
+
+                // Execute the payment
+                onAuthorize: function (data, actions) {
+                    return actions.payment.execute().then(function () {
+                        var url = '@Url.Action("CompleteOrder", "Orders", new { })';
+                        window.location.href = url;
+                    });
+                }
+            }, '#paypal-btn');
+        }
+
+        // Call the function to render PayPal button initially
+        renderPayPalButton();
     </script>
 }
+ 
