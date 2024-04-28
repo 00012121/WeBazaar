@@ -1,4 +1,5 @@
-﻿@model Item
+﻿@using System.Globalization
+@model Item
 
 @{
     ViewData["Title"] = "Item details";
@@ -87,7 +88,7 @@
                                    asp-controller="Orders"
                                    asp-action="AddItemToShoppingCart"
                                    asp-route-id="@Model.Id">
-                                    <i class="bi bi-cart-plus"></i> Add to Cart (Price @Model.Price.ToString("c"))
+                                    <i class="bi bi-cart-plus"></i> Add to Cart (Price: @Model.Price.ToString("c", new CultureInfo("uz-UZ")) )
                                 </a>
                             </p>
                         </div>
