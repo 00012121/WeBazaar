@@ -3,6 +3,9 @@ using WeBazaar.Data;
 using Microsoft.EntityFrameworkCore;
 using WeBazaar.Data.Services;
 using WeBazaar.Data.Cart;
+using WeBazaar.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,9 +27,17 @@ builder.Services.AddScoped<ICompaniesService, CompaniesService>();
 
 builder.Services.AddScoped<IItemsService, ItemsService>();
 
-builder.Services.AddSingleton<IHttpContextAccessor,  HttpContextAccessor>();
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddScoped(sc => ShoppingCart.GetShoppingCart(sc));
+
+//Authentication and authorization
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
+builder.Services.AddMemoryCache();
 builder.Services.AddSession();
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+});
 
 builder.Services.AddScoped<IOrdersService, OrdersService>();
 
@@ -47,6 +58,10 @@ app.UseRouting();
 
 app.UseSession();
 
+//Authentication and authorization
+app.UseAuthentication();
+app.UseAuthorization();
+
 app.UseAuthorization();
 
 app.MapControllerRoute(
@@ -55,7 +70,8 @@ app.MapControllerRoute(
 
 
 //Seed database
-//AppDbInitializer.Seed(app);
+AppDbInitializer.Seed(app);
+AppDbInitializer.SeedUsersAndRolesAsync(app);//.Wait();
 
 app.Run();
 
